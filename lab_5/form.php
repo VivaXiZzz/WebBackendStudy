@@ -33,12 +33,21 @@
             {
                 $radio1 = true;
                 $radio2 = false;
+                $radio3 = false;
+            }
+            else($fet['gender'] == 'female')
+            {
+                $radio1 = false;
+                $radio2 = true;
+                $radio3 = false;
             }
             else
             {
                 $radio1 = false;
-                $radio2 = true;
+                $radio2 = false;
+                $radio3 = true;
             }
+            
             $stmt = $db->prepare("SELECT lang_id FROM UserProgrammingLanguages WHERE user_id = ?");
             $stmt->execute([$user_id]);
             $languages_cookie = $stmt->fetchAll(PDO::FETCH_COLUMN);
@@ -109,6 +118,8 @@
                  <label for="male">Мужской</label>
                 <input type="radio" id="female" name="gender" <?php if($radio2 == 1) echo 'checked'; ?> value="female" class="form-radio">
                     <label for="female">Женский</label>
+                <input type="radio" id="male" name="gender" <?php if($radio3 == 1) echo 'checked'; ?> value="non" class="form-radio">
+                    <label for="non">non</label>
                 <?php echo isset($errors['gender']) ? $errors['gender'] : ''; ?>
             </div>
             <div class="form-group input-control">
