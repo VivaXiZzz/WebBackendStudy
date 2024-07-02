@@ -87,9 +87,16 @@
             if($gender == 'male') {
                 setcookie('radio1', true, $expiration_time, '/');
                 setcookie('radio2', false, $expiration_time, '/');
+                setcookie('radio3', false, $expiration_time, '/');
             } elseif($gender == 'female') {
                 setcookie('radio1', false, $expiration_time, '/');
                 setcookie('radio2', true, $expiration_time, '/');
+                setcookie('radio3', false, $expiration_time, '/');
+            }
+            elseif($gender == 'non') {
+                setcookie('radio1', false, $expiration_time, '/');
+                setcookie('radio2', false, $expiration_time, '/');
+                setcookie('radio3', true, $expiration_time, '/');
             }
         }
 
